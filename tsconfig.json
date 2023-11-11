@@ -45,12 +45,10 @@
     "noImplicitThis": true,
     "strictNullChecks": false,
     "downlevelIteration": true,
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@assets/*": ["./src/assetsassets/*"]
+      "*": ["./src/*"]
     },
+    "types": ["node", "vite/client"]
   },
-  "include": [
-    "./src"
-  ], 
 }
