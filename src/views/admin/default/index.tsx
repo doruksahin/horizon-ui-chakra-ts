@@ -21,7 +21,7 @@
 */
 
 // Chakra imports
-import { Avatar, Box, Flex, FormLabel, Icon, Select, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
+import {Avatar, Box, Button, Flex, FormLabel, Icon, Select, SimpleGrid, useColorModeValue} from '@chakra-ui/react';
 // Assets
 import Usa from 'assets/img/dashboards/usa.png';
 // Custom components
@@ -38,6 +38,8 @@ import TotalSpent from 'views/admin/default/components/TotalSpent';
 import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
 import tableDataCheck from 'views/admin/default/variables/tableDataCheck';
 import tableDataComplex from 'views/admin/default/variables/tableDataComplex';
+import AuthService from "../../../api/auth/service";
+import getUsers from "../../../api/hello";
 
 export default function UserReports() {
 	// Chakra Color Mode
@@ -45,6 +47,7 @@ export default function UserReports() {
 	const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
 	return (
 		<Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
+			<MyButton/>
 			<SimpleGrid columns={{ base: 1, md: 2, lg: 3, '2xl': 6 }} gap='20px' mb='20px'>
 				<MiniStatistics
 					startContent={
@@ -133,4 +136,14 @@ export default function UserReports() {
 			</SimpleGrid>
 		</Box>
 	);
+}
+
+
+function MyButton(){
+
+	return (<Box>
+		<Button onClick={() => AuthService.register("doruksahin98@gmail.com", "dodo1234", "doruk", "şahin")}>Register</Button>
+		<Button onClick={() => AuthService.login("doruksahin98@gmail.com", "dodo1234")}>Login</Button>
+
+		<Button onClick={() => getUsers()}>Get Users</Button></Box>)
 }
